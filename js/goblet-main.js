@@ -77,7 +77,7 @@ function startGame() {
   // Add Player's character
   player = new characterComponent(32, 32, 'resources/characters/Wizard/SVG/Wizard-Right-2.svg', -160, 408, "player", true, 1, 3, 0, true);
   // Add Pet character
-  playerPet = new characterComponent(20, 25, 'resources/npc/Duck-right-2.png', -168, 470, "image", true, 1, 3, 0, true);
+  playerPet = new characterComponent(20, 25, 'resources/npc/Duck-Right-2.png', -168, 470, "image", true, 1, 3, 0, true);
   // Set Player's gravity; also is pet's gravity
   player.gravity = 9.8;
 

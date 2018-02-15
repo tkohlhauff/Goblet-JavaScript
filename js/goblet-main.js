@@ -51,18 +51,18 @@ function startGame() {
   // Sky
   gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/Background-sky-large.png', 0, 0, "background"));
   // Foreground clouds - background layer
-  gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/foreground-clouds-large.png', 0, -30, "cloud"));
-  gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/foreground-clouds-large.png', -1005, -80, "cloud"));
+  gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/Foreground-Clouds-large.png', 0, -30, "cloud"));
+  gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/Foreground-Clouds-large.png', -1005, -80, "cloud"));
   // Rows of trees to create depth
-  gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/Background-trees+grass-large-single-row.png', 0, -70, "background"));
-  gameBackgrounds.push(new component(1005 + 5, gameAreaHeight + 5, 'resources/backgrounds/Background-trees+grass-large-single-row.png', 30, -65, "background"));
-  gameBackgrounds.push(new component(1005 + 10, gameAreaHeight + 10, 'resources/backgrounds/Background-trees+grass-large-single-row.png', -10, -60, "background"));
+  gameBackgrounds.push(new component(1005, gameAreaHeight, 'resources/backgrounds/Background-Trees+grass-large-single-row.png', 0, -70, "background"));
+  gameBackgrounds.push(new component(1005 + 5, gameAreaHeight + 5, 'resources/backgrounds/Background-Trees+grass-large-single-row.png', 30, -65, "background"));
+  gameBackgrounds.push(new component(1005 + 10, gameAreaHeight + 10, 'resources/backgrounds/Background-Trees+grass-large-single-row.png', -10, -60, "background"));
   // More trees in front of tower
-  gameBackgrounds.push(new component(1005 + 15, gameAreaHeight + 15, 'resources/backgrounds/Background-trees+grass-large-single-row.png', 20, -55, "background"));
+  gameBackgrounds.push(new component(1005 + 15, gameAreaHeight + 15, 'resources/backgrounds/Background-Trees+grass-large-single-row.png', 20, -55, "background"));
   // gameBackgrounds.push(new component(1005 + 20, gameAreaHeight + 20, 'resources/backgrounds/Background-trees+grass-large-single-row.png', -30, -50, "background"));
   // Wizard Tower
   // gameBackgrounds.push(new component(200, 576 / 3 * 2, 'resources/backgrounds/svg/Wizard-Tower-Summer-2.svg', window.innerWidth - (576 / 3), 45, "image"));
-  gameBackgrounds.push(new component(200, 576 / 3 * 2, 'resources/backgrounds/svg/Wizard-Tower-Summer-2.svg', window.innerWidth, ((window.innerHeight / 3) * 2) - (576 / 3 * 2) - 45 , "image"));
+  gameBackgrounds.push(new component(200, 576 / 3 * 2, 'resources/backgrounds/SVG/Wizard-Tower-Summer-2.svg', window.innerWidth, ((window.innerHeight / 3) * 2) - (576 / 3 * 2) - 45 , "image"));
   // gameBackgrounds.push(new component(576 / 3 * 2, 576 / 3 * 2, 'resources/Wizzard_Tower.gif', window.innerWidth - (576 / 3), 45, "image"));
   gameBackgrounds.push(new component(1005 + 20, gameAreaHeight + 20, 'resources/backgrounds/Background-grass-large-single-row.png', 0, -50, "background"));
   // gameBackgrounds.push(new component(1005 + 20, gameAreaHeight + 20, 'resources/backgrounds/Background-trees+grass-large-single-row.png', -50 , -50, "background"));
@@ -72,7 +72,7 @@ function startGame() {
   gameBackgrounds.push(new component(1005 + 20, gameAreaHeight + 20, 'resources/backgrounds/Background-Trees+grass-large-single-row.png', gameBackgrounds[9].x + gameBackgrounds[9].width - 20, -50, "trail"));
   // Add low level foreground clouds 
   for(x = 0; x < 40; x++)
-    clouds.push(new component(23, 8, 'resources/backgrounds/single-cloud.png', 3 * (Math.random() * Math.ceil(gameArea.canvas.width)), 2 *(Math.random() * Math.floor(gameArea.canvas.height)), "clouds"));
+    clouds.push(new component(23, 8, 'resources/backgrounds/Single-Cloud.png', 3 * (Math.random() * Math.ceil(gameArea.canvas.width)), 2 *(Math.random() * Math.floor(gameArea.canvas.height)), "clouds"));
   
   // Add Player's character
   player = new characterComponent(32, 32, 'resources/characters/Wizard/SVG/Wizard-Right-2.svg', -160, 408, "player", true, 1, 3, 0, true);
@@ -307,9 +307,9 @@ function characterComponent(width, height, color, x, y, type, falling, direction
 
     // Setup Left Image List
     characterLeft = [];
-    characterLeft.push('resources/' + path + '-left-1.png');
-    characterLeft.push('resources/' + path + '-left-2.png');
-    characterLeft.push('resources/' + path + '-left-3.png');
+    characterLeft.push('resources/' + path + '-Left-1.png');
+    characterLeft.push('resources/' + path + '-Left-2.png');
+    characterLeft.push('resources/' + path + '-Left-3.png');
 
     // Start image preloading
     for(x = 0; x < 3; x++) {
@@ -324,9 +324,9 @@ function characterComponent(width, height, color, x, y, type, falling, direction
 
     // Setup Right Image List
     characterRight = [];
-    characterRight.push('resources/' + path + '-right-1.png');
-    characterRight.push('resources/' + path + '-right-2.png');
-    characterRight.push('resources/' + path + '-right-3.png');
+    characterRight.push('resources/' + path + '-Right-1.png');
+    characterRight.push('resources/' + path + '-Right-2.png');
+    characterRight.push('resources/' + path + '-Right-3.png');
 
     // Start image preloading
     for(x = 0; x < 3; x++)
@@ -549,8 +549,8 @@ function animatePlayerIntro() {
     player.stepCount++;
     playerPet.stepCount++;
   }
-  player.animateCharacter(player.lastDirection, 'characters/wizard/png/wizard');
-  playerPet.animateCharacter(playerPet.lastDirection, 'npc/duck');
+  player.animateCharacter(player.lastDirection, 'characters/Wizard/PNG/Wizard');
+  playerPet.animateCharacter(playerPet.lastDirection, 'npc/Duck');
   if(introAnimate)
     playerIntroAnimateDone = true;
 }
@@ -638,7 +638,7 @@ function checkButtonPress() {
       }
   }
 
-  player.animateCharacter(player.lastDirection, 'characters/Wizard/png/wizard');
+  player.animateCharacter(player.lastDirection, 'characters/Wizard/PNG/Wizard');
   playerPet.animateCharacter(playerPet.lastDirection, 'npc/Duck')
 }
 
@@ -681,9 +681,9 @@ function animateIntro() {
 
 function startMenu() {
   startButton = new component(300, 0, 'resources/buttons/Start-Button.png', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height, "image");
-  settingsButton = new component(300, 0, 'resources/buttons/settings-Button.png', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height, "image");
-  exitButton = new component(300, 0, 'resources/buttons/exit-Button.png', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height, "image");
-  gameLogo = new component(300, 60, 'resources/svg/goblet-pixel-logo-2.svg', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height / 3, "image");
+  settingsButton = new component(300, 0, 'resources/buttons/Settings-Button.png', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height, "image");
+  exitButton = new component(300, 0, 'resources/buttons/Exit-Button.png', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height, "image");
+  gameLogo = new component(300, 60, 'resources/SVG/Goblet-Pixel-Logo-2.svg', (gameArea.canvas.width / 2) - 150, gameArea.canvas.height / 3, "image");
 
   if(gameLogo.width < 400) {
     gameLogo.width += 8;

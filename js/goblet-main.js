@@ -266,11 +266,11 @@ function characterComponent(width, height, color, x, y, type, falling, direction
   }
   this.fire = function() {
     if(this.lastDirection == 1 ) {
-      this.projectiles.push(new component(16, 7, 'resources/projectiles/Red-Projectile-narrow.png', this.frontX, this.y + (this.height/2), "image"));
+      this.projectiles.push(new component(16, 7, 'resources/projectiles/Red-Projectile-Narrow.png', this.frontX, this.y + (this.height/2), "image"));
       this.projectiles[this.projectiles.length - 1].speedX = 7;
     }
     else if(this.lastDirection == 0) {
-      this.projectiles.push(new component(-16, 7, 'resources/projectiles/Red-Projectile-narrow-reverse.png', this.frontX, this.y + (this.height/2), "image"));
+      this.projectiles.push(new component(-16, 7, 'resources/projectiles/Red-Projectile-Narrow-Reverse.png', this.frontX, this.y + (this.height/2), "image"));
       this.projectiles[this.projectiles.length - 1].speedX = -7;
     }
     

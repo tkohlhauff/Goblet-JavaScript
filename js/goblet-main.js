@@ -75,7 +75,7 @@ function startGame() {
     clouds.push(new component(23, 8, 'resources/backgrounds/single-cloud.png', 3 * (Math.random() * Math.ceil(gameArea.canvas.width)), 2 *(Math.random() * Math.floor(gameArea.canvas.height)), "clouds"));
   
   // Add Player's character
-  player = new characterComponent(32, 32, 'resources/characters/wizard/svg/Wizard-right-2.svg', -160, 408, "player", true, 1, 3, 0, true);
+  player = new characterComponent(32, 32, 'resources/characters/Wizard/SVG/Wizard-Right-2.svg', -160, 408, "player", true, 1, 3, 0, true);
   // Add Pet character
   playerPet = new characterComponent(20, 25, 'resources/npc/Duck-right-2.png', -168, 470, "image", true, 1, 3, 0, true);
   // Set Player's gravity; also is pet's gravity

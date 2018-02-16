@@ -203,3 +203,105 @@ function characterComponent(width, height, color, x, y, type, falling, direction
     }
   }
 }
+function animatePlayerIntro() {
+  player.speedX = (player.speed / 3) ;
+  playerPet.speedX = (player.speed / 3);
+  player.lastDirection = 1;
+  playerPet.lastDirection = 1;
+  if(gameArea.frameNo % 5 == 0) {
+    player.stepCount++;
+    playerPet.stepCount++;
+  }
+  player.animateCharacter(player.lastDirection, 'characters/Wizard/PNG/Wizard');
+  playerPet.animateCharacter(playerPet.lastDirection, 'npc/Duck');
+  if(introAnimate)
+    playerIntroAnimateDone = true;
+}
+
+function checkButtonPress() {
+  // If pressing Left Arrow Key
+  if (gameArea.keysdown && gameArea.keysdown[37] && !gameArea.keysdown[16]) {
+    player.speedX -= player.speed;
+    playerPet.speedX -= player.speed;
+    player.lastDirection = 0;
+    playerPet.lastDirection = 0;
+    if(gameArea.frameNo % 10 == 0) {
+      player.stepCount++;
+      playerPet.stepCount++;
+    }
+  } else 
+
+  // If pressing Shift + Left Arrow Key
+  if (gameArea.keysdown && gameArea.keysdown[37] && gameArea.keysdown[16]) {
+    player.speedX -= (player.speed * 1.5);
+    playerPet.speedX -= (player.speed * 1.5);
+    player.lastDirection = 0;
+    playerPet.lastDirection = 0;
+    if(gameArea.frameNo % 5 == 0) {
+      player.stepCount++;
+      playerPet.stepCount++; 
+    }
+  }
+
+  // Reset animation to 'standing' step count so character isn't standing still
+  // with the walk animation
+  if (!gameArea.keysdown[37] && !gameArea.keysdown[39] ) {
+    // player.lastDirection = 2;
+    player.stepCount = 0;
+    playerPet.stepCount = 0;
+  }
+  // If pressing Right Arrow Key
+  if (gameArea.keysdown && gameArea.keysdown[39] && !gameArea.keysdown[16]) {
+    player.speedX += player.speed;
+    playerPet.speedX += player.speed;
+    player.lastDirection = 1;
+    playerPet.lastDirection = 1;
+    // player.animate(player.lastDirection);
+    if(gameArea.frameNo % 10 == 0){
+      player.stepCount++;
+      playerPet.stepCount++;
+    }
+  } else 
+  // If pressing Shift + Right Arrow Key
+  if (gameArea.keysdown && gameArea.keysdown[39] && gameArea.keysdown[16]) {
+    player.speedX += (player.speed * 1.5) ;
+    playerPet.speedX += (player.speed * 1.5);
+    player.lastDirection = 1;
+    playerPet.lastDirection = 1;
+    if(gameArea.frameNo % 5 == 0) {
+      player.stepCount++;
+      playerPet.stepCount++;
+    }
+  }
+  
+  // If pressing Space Key (Fire)
+  if ( gameArea.keysdown && gameArea.keysdown[32] ) {
+    player.fireCount = 1;
+  }
+  // If releasing Space Key (Fire)
+  if ( gameArea.keysup[32] ) {
+    fire();
+  }
+
+  // If pressing up key
+  if (gameArea.keysdown && gameArea.keysdown[38]) {
+    if (!player.falling) {
+      jump(20);
+    } 
+    if (player.falling && player.doubleJump == 1 ) {
+      jump(20);
+      player.doubleJump++;
+    }
+  }
+
+  // Releasing up key
+  if ( player.jumped && player.falling && gameArea.keysup[38] ) {
+      if(player.doubleJump < 2) {
+        player.doubleJump = 1;
+      }
+  }
+
+  player.animateCharacter(player.lastDirection, 'characters/Wizard/PNG/Wizard');
+  playerPet.animateCharacter(playerPet.lastDirection, 'npc/Duck')
+}
+

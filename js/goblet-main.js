@@ -535,7 +535,7 @@ function updateGameArea() {
     player.maxY = precisionRound(player.y, 0);
   
   // player.animate(player.lastDirection);
-   if(event.clientX >= startButton.x && event.clientX <= startButton.x + startButton.width && event.clientY >= startButton.y && event.clientY <= startButton.y + 50){
+   if(event.clientX >= startButton.x){
         startButton.color='resources/buttons/Start-Button-Pressed.png';
         startButton.update();
     }

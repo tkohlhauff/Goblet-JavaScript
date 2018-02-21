@@ -519,9 +519,6 @@ function updateGameArea() {
     gameLogo.update();
     animateLogo();
   } else if (introAnimateDone) {
-    if(event.clientX >= startButton.x && event.clientX <= startButton.x + startButton.width && event.clientY >= startButton.y && event.clientY <= startButton.y + 50){
-        startButton.color='resources/buttons/Start-Button-Pressed.png';
-    }
     gameLogo.update();
     startButton.update();
     settingsButton.update();
@@ -538,7 +535,10 @@ function updateGameArea() {
     player.maxY = precisionRound(player.y, 0);
   
   // player.animate(player.lastDirection);
-
+   if(event.clientX >= startButton.x && event.clientX <= startButton.x + startButton.width && event.clientY >= startButton.y && event.clientY <= startButton.y + 50){
+        startButton.color='resources/buttons/Start-Button-Pressed.png';
+        startButton.update();
+    }
   // Update each label to relevant information each frame
   updateLabels();
 }

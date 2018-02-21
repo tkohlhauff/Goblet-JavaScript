@@ -519,6 +519,9 @@ function updateGameArea() {
     gameLogo.update();
     animateLogo();
   } else if (introAnimateDone) {
+    if(event.clientX >= startButton.x && event.clientX <= startButton.x + startButton.width && event.clientY >= startButton.y && event.clientY <= startButton.y + 50){
+        startButton.color='resources/buttons/Start-Button-Pressed.png';
+    }
     gameLogo.update();
     startButton.update();
     settingsButton.update();
